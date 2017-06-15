@@ -196,8 +196,8 @@ void parseFile(string name, string path, string indent, int isComment, int depth
                     string localindent = currentIndent;
                     int typecode = isSingleApo * IC_SINGLE_APO + isDoubleApo * IC_DOUBLE_APO + isBlock * IC_BLOCK_COMMENT + isInlineComment * IC_INLINE_COMMENT;
                     if (typecode == 0) typecode = (!indentOnly || i+1 < line.size()) * IC_FUNCTION;
-                    parseFile(localname, localpath, localindent, typecode, depth+1);
                     if (!quiet) cout << " (ID" << typecode << ")";
+                    parseFile(localname, localpath, localindent, typecode, depth+1);
                 } else {
                     indentOnly = false;
                     out << line[i];
